@@ -10704,3 +10704,31 @@ Started GET "/api/feeds" for 127.0.0.1 at 2014-11-20 18:28:46 -0800
 Processing by Api::FeedsController#index as JSON
   [1m[35mFeed Load (1.0ms)[0m  SELECT "feeds".* FROM "feeds"
 Completed 200 OK in 4ms (Views: 2.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/api/feeds/5" for 127.0.0.1 at 2014-11-20 18:37:01 -0800
+Processing by Api::FeedsController#show as JSON
+  Parameters: {"id"=>"5"}
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1[0m  [["id", "5"]]
+  [1m[35mSQL (2.0ms)[0m  UPDATE "feeds" SET "updated_at" = '2014-11-21 02:37:01.511851' WHERE "feeds"."id" = 5
+  [1m[36m (0.9ms)[0m  [1mSELECT "entries"."guid" FROM "entries"[0m
+  [1m[35mEntry Load (0.8ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1  [["feed_id", 5]]
+Completed 200 OK in 393ms (Views: 387.3ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/api/feeds/5" for 127.0.0.1 at 2014-11-20 18:41:46 -0800
+Processing by Api::FeedsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mFeed Load (0.4ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1[0m  [["id", "5"]]
+  [1m[35mSQL (0.7ms)[0m  UPDATE "feeds" SET "updated_at" = '2014-11-21 02:41:46.580551' WHERE "feeds"."id" = 5
+  [1m[36m (1.4ms)[0m  [1mSELECT "entries"."guid" FROM "entries"[0m
+  [1m[35mEntry Load (0.6ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1  [["feed_id", 5]]
+Completed 200 OK in 345ms (Views: 340.9ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/api/feeds/5" for 127.0.0.1 at 2014-11-20 18:41:46 -0800
+Processing by Api::FeedsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mFeed Load (0.5ms)[0m  [1mSELECT "feeds".* FROM "feeds" WHERE "feeds"."id" = $1 LIMIT 1[0m  [["id", "5"]]
+  [1m[35mEntry Load (0.7ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."feed_id" = $1  [["feed_id", 5]]
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 1.2ms)
