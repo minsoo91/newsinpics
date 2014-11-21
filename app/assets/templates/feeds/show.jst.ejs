@@ -1,32 +1,12 @@
 <h3><%= feed.escape('title') %></h3>
 <!-- <button id="refresh">Refresh</button> -->
 
-<% if (feed.id === 5) { %>
-  <div id="odd">
+
     <% feed.entries().each(function(entry) { %>
-      <% if (entry.id % 2 !== 0) { %>
-        <div class="image-wrapper">
-          <a href="<%= entry.img %>"><img src="<%= entry.img %>"></a>
-        </div>
-      <% } %>
+        <% if (entry.img) { %>
+            <div class="image-wrapper">
+              <a href="<%= entry.img %>"><img src="<%= entry.img %>"></a>
+            </div>
+        <% } %>
     <% }) %>
-  </div>
   
-  <div id="even">
-    <% feed.entries().each(function(entry) { %>
-      <% if (entry.id % 2 === 0) { %>
-        <div class="image-wrapper">
-          <a href="<%= entry.img %>"><img src="<%= entry.img %>"></a>
-        </div>
-      <% } %>
-    <% }) %>
-  </div>
-<% } else { %>
-  <ul>
-    <% feed.entries().each(function(entry) { %>
-      <li>
-        <%= entry.escape('title') %>
-      </li>
-    <% }) %>
-  </ul>
-<% }%> 

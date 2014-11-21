@@ -1,7 +1,6 @@
 NewsReader.Routers.Router = Backbone.Router.extend({
   initialize: function (options) {
-      this.$rootEl = options.$rootEl,
-      this.$showEl = options.$showEl
+      this.$rootEl = options.$rootEl
   },
 
   routes: {

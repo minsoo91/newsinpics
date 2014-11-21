@@ -1,7 +1,7 @@
 NewsReader.Models.Entry = Backbone.Model.extend({  
   parse: function (resp) {
     if (resp.json) {
-      var regex = /img.*\....\\/;
+      var regex = /img src=\\\"http(.+)\.[jpg][pn][gf]/;
       var str = resp.json.match(regex)
       if (str) {
         var str = str[0];

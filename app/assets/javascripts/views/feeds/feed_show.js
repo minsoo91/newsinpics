@@ -7,8 +7,11 @@ NewsReader.Views.FeedsShow = Backbone.View.extend({
   
   render: function () {
     var content = this.template({feed: this.model});
+
     this.$el.html(content);
-    
+    this.$el.gridalicious({
+	  width: 300
+	}) 
     return this;
   }
 });
